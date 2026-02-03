@@ -1,5 +1,6 @@
 package app;
 
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DaoFactore;
@@ -36,6 +37,20 @@ public class Program {
 		for (Seller seller2 : list) {
 			System.out.println(seller2);
 		}
+		
+		System.out.println("TESTE4 insert findAll");
+
+		Seller newSeller = new Seller(
+			    null,                   // ID é nulo porque o DB vai gerar
+			    "Greg Blue",            // Nome
+			    "greg@gmail.com",       // Email
+			    new Date(),             // Data de nascimento (java.util.Date)
+			    4000.0,                 // Salário base
+			    department                     // Objeto departamento associado
+			);
+		
+		sellerDao.insert(newSeller);
+		System.out.println("Inserted new id = "+ newSeller.getId());
 		
 	}
 
